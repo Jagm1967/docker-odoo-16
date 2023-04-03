@@ -1,0 +1,3 @@
+[submodule "addons-customize/odoo_addons_3ros"]
+	path = addons-customize/odoo_addons_3ros
+	url = https://github.com/falconsoft3d/odoo_addons_3ros.git
