@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<menuitem id="estate_menu_root" name="Estate">
+    <menuitem id="estate_primer_nivel_menu" name="Primer nivel">
+        <menuitem id="estate_1_menu_action" action="estate_property_action"/>
+        <menuitem id="estate_2_menu_action" action="estate_property_action"/>
+        <menuitem id="estate_3_menu_action" action="estate_property_action"/>
+    </menuitem>
+</menuitem>
+
+</odoo> 

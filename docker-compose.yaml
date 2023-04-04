@@ -1,31 +1,26 @@
 version: '3'
 services:
   web:
-    platform: linux/x86_64
     container_name: ${WEB_HOST}
-    image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_TAG}
+    image: odoo
     build: ./
     depends_on:
-      - db16
+      - db
     ports:
       - "${WEB_PORT}:8069"
     volumes:
-      - odoo-web-data:/var/lib/odoo
-      - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-      - ./addons-customize:/mnt/extra-addons-customize
-    environment:
-      - VIRTUAL_HOST=odoo15.marlonfalcon.com
-    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
+      - ./config:/etc/odoo
+      - odoo-web-data:/var/lib/odoo
+    command: odoo -u all -d garrido
     restart: always
-  db16:
-    platform: linux/x86_64
+  db:
     container_name: ${DB_HOST}
-    image: ${DB_IMAGE}:${DB_TAG}
+    image: postgres:13
     environment:
-      - POSTGRES_DB=db16
-      - POSTGRES_PASSWORD=odoo16
-      - POSTGRES_USER=odoo16
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     ports:
       - "${DB_PORT}:5432"
