@@ -12,7 +12,7 @@ services:
       - ./addons:/mnt/extra-addons
       - ./config:/etc/odoo
       - odoo-web-data:/var/lib/odoo
-    command: odoo -u all -d garrido
+    command: odoo -u estate -d garrido --dev xml
     restart: always
   db:
     container_name: ${DB_HOST}
