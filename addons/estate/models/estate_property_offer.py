@@ -13,7 +13,7 @@ class RecurringPlan(models.Model):
     partner_id = fields.Many2one("res.partner", string="Comprador")
     property_id = fields.Many2one("estate.property", string="Propiedad", ondelete="cascade")
     validity = fields.Integer("Validez (dias)")
-    date_deadline = fields.Date("Fecha limite", compute="_compute_date_deadline", inverse="_inverse_date_deadline", store=True)
+    date_deadline = fields.Date("Fecha limite", compute="_compute_date_deadline", inverse="_inverse_date_deadline")
 
     @api.depends('validity','create_date')
     def _compute_date_deadline(self):
@@ -28,3 +28,13 @@ class RecurringPlan(models.Model):
                 record.validity = (record.date_deadline - record.create_date).days
             else:
                 record.validity = False
+
+    def action_accept(self):
+        self.status = 'accepted'
+        self.property_id.state = 'offer_accepted'
+        self.property_id.buyer_id = self.partner_id
+        self.property_id.selling_price = self.price
+        return True
+    def action_reject(self):
+        self.status = 'rejected'
+        return True

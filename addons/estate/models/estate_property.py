@@ -30,8 +30,8 @@ class RecurringPlan(models.Model):
     buyer_id = fields.Many2one("res.partner", string="Comprador")
     tag_ids = fields.Many2many("estate.property.tag", string="Etiquetas")
     offer_ids = fields.One2many("estate.property.offer", "property_id", string="Ofertas")
-    total_area = fields.Integer("Tamaño total", compute="_compute_total_area", store=True)
-    best_price = fields.Float("Mejor precio", compute="_compute_best_price", store=True)
+    total_area = fields.Integer("Tamaño total", compute="_compute_total_area")
+    best_price = fields.Float("Mejor precio", compute="_compute_best_price")
 
     @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):
@@ -46,3 +46,19 @@ class RecurringPlan(models.Model):
                 if offer.price > best_price:
                     best_price = offer.price
             record.best_price = best_price
+
+    @api.onchange('garden')
+    def _onchange_garden(self):
+        if not self.garden:
+            self.garden_area = 0
+            self.garden_orientation = False
+        else:
+            self.garden_area = 10
+            self.garden_orientation = 'north'
+
+    def action_vendido(self):
+        self.state = 'sold'
+        return True
+    def action_cancelar_venta(self):
+        self.state = 'canceled'
+        return True
