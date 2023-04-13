@@ -11,9 +11,9 @@ services:
     volumes:
       - ./addons:/mnt/extra-addons
       - ./config:/etc/odoo
-      - odoo-web-data:/var/lib/odoo
-    command: odoo -u estate -d garrido --dev xml
-    restart: always
+      - odoo-web:/var/lib/odoo
+    #command: odoo -u estate -d garrido --dev xml
+    #restart: always
   db:
     container_name: ${DB_HOST}
     image: postgres:13
@@ -25,9 +25,9 @@ services:
     ports:
       - "${DB_PORT}:5432"
     volumes:
-      - odoo-db-data:/var/lib/postgresql/data/pgdata
+      - odoo-db:/var/lib/postgresql/data/pgdata
     restart: always
 
 volumes:
-  odoo-db-data:
-  odoo-web-data:
+  odoo-db:
+  odoo-web:

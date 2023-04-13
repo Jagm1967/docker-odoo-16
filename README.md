@@ -38,3 +38,4 @@ Marlon Falcón Hernández | Valencia | Spain
 » Github: https://github.com/falconsoft3d
 » linkedin: https://linkedin.com/in/marlon-falcón-3a2aa9a4
 ```
+admin_passwd = $pbkdf2-sha512$25000$GAPgfE8phdCak1IqpZSy1g$ntLkrbRRCqu8XEi9s/HnkzMGRrSdJxzw1hFolKRJGcmsBHVu9fTRISIzbIrUB6nWipWr4lf2lYsW8RMCSjfxEA
