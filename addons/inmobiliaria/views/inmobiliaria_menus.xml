@@ -1,0 +1,5 @@
+<menuitem id="inmobiliaria_menu_root" name="Inmobiliaria">
+    <menuitem id="inmobiliaria_propiedad_menu" name="Propiedades">
+        <menuitem id="propiedad_model_menu_action" action="propiedad_model_action"/>
+    </menuitem>
+</menuitem>

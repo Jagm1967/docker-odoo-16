@@ -10,6 +10,9 @@
         'base'
     ],
     'data': [
-        'data/ir.model.access.csv',]
+        'data/ir.model.access.csv',
+        'views/inmobiliaria_propiedad_vistas.xml',
+        'views/inmobiliaria_menus.xml'
+    ]
     
 }
