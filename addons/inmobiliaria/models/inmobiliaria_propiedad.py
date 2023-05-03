@@ -6,25 +6,25 @@ class PropiedadModel(models.Model):
 
  
 
-    name = fields.Char(required=True, default="Desconocido")
+    name = fields.Char('Nombre',required=True, default="Desconocido")
     descripcion = fields.Char()
-    codigo_postal = fields.Char()
-    disponible = fields.Date(default=fields.Date.today().add(months=3))
-    precio_esperado = fields.Float(required=True)
-    precio_venta = fields.Float()
-    dormitorios = fields.Integer()
-    habitables_m =fields.Integer()
-    fachadas = fields.Integer()
-    garaje = fields.Boolean
-    jardin_m = fields.Integer()
-    jardin_orientacion = fields.Selection(
+    codigo_postal = fields.Char('Código postal', size=5)
+    disponible = fields.Date('Disponible desde',default=fields.Date.today().add(months=3))
+    precio_esperado = fields.Float('Precio esperado',required=True)
+    precio_venta = fields.Float('Precio de venta')
+    dormitorios = fields.Integer('Dormitorios')
+    habitables_m =fields.Integer('Metros habitables')
+    fachadas = fields.Integer('Fachadas')
+    garaje = fields.Boolean('Garaje')
+    jardin_m = fields.Integer('Metros de jardin')
+    jardin_orientacion = fields.Selection('Orientación del jardin',
         string='Type',
         selection=[('norte', 'Norte'), ('sur', 'Sur'), ('este', 'Este'), ('oeste', 'Oeste')],
         help="Orientación del jardin")
-    visto = fields.Datetime("Visti en", default=lambda self:fields.Datetiem.now())
+    visto = fields.Datetime("Visto el", default=lambda self:fields.Datetiem.now())
     active = fields.Boolean (default=False)
-    state = fields.Selection(
+    state = fields.Selection('Estado',
         string='Type',
-        selection=[]
+        selection=[('nuevo', 'Nuevo'), ('recibida', 'Oferta recibida'), ('aceptada', 'Oferta aceptada'), ('vendido', 'Vendido'), ('cancelado', 'Cancelado')],
     )
 
