@@ -1,0 +1,5 @@
+<record id="propiedad_model_action" model="ir.actions.act_window">
+    <field name="name">Inmobiliaria</field>
+    <field name="res_model">inmobiliaria.propiedad</field>
+    <field name="view_mode">tree,form</field>
+</record>
