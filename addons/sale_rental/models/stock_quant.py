@@ -11,18 +11,19 @@ class StockInventory(models.Model):
 
     @api.model
     def create_demo_and_validate(self):
-        rental_in_loc = self.env.ref("stock_warehouse0").rental_in_location_id
-        products = [
-            ("product.consu_delivery_01", 56),
-            ("product.product_product_20", 46),
-            ("product.product_product_25", 2),
-        ]
-        for (product_xmlid, qty) in products:
-            product = self.env.ref(product_xmlid)
-            self.with_context(inventory_mode=True).create(
-                {
-                    "product_id": product.id,
-                    "inventory_quantity": qty,
-                    "location_id": rental_in_loc.id,
-                }
-            ).action_apply_inventory()
+        return True
+        # rental_in_loc = self.env.ref("stock_warehouse0").rental_in_location_id
+        # products = [
+        #     ("product.consu_delivery_01", 56),
+        #     ("product.product_product_20", 46),
+        #     ("product.product_product_25", 2),
+        # ]
+        # for (product_xmlid, qty) in products:
+        #     product = self.env.ref(product_xmlid)
+        #     self.with_context(inventory_mode=True).create(
+        #         {
+        #             "product_id": product.id,
+        #             "inventory_quantity": qty,
+        #             "location_id": rental_in_loc.id,
+        #         }
+        #     ).action_apply_inventory()

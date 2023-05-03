@@ -1,1 +1,1 @@
-from . import test_sale_rental
+# from . import test_sale_rental

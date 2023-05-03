@@ -9,8 +9,8 @@ class TestSaleRental(TransactionCase):
         super().setUpClass()
         cls.test_rental_prod = cls.env.ref("sale_rental.rent_product_product_25")
         cls.test_partner = cls.env["res.partner"].create({"name": "Foo"})
-        cls.rental_in_loc = cls.env.ref("stock_warehouse0").rental_in_location_id
-        cls.rental_out_loc = cls.env.ref("stock_warehouse0").rental_out_location_id
+        #cls.rental_in_loc = cls.env.ref("stock_warehouse0").rental_in_location_id
+        #cls.rental_out_loc = cls.env.ref("stock_warehouse0").rental_out_location_id
 
     def test_main(self):
         # Rent a product

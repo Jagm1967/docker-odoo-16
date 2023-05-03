@@ -19,8 +19,8 @@
     <field name="sequence">100</field>
 </record>
 
-<record id="stock_warehouse0" model="stock.warehouse">
+<!-- <record id="stock_warehouse0" model="stock.warehouse">
     <field name="rental_allowed">True</field>
-</record>
+</record> -->
 
 </odoo>
