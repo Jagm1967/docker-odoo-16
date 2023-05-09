@@ -2,3 +2,4 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_espacio,access_espacio,model_espacio,base.group_user,1,1,1,1
 access_espacio_tipo,access_espacio_tipo,model_espacio_tipo,base.group_user,1,1,1,1
 access_espacio_ubicacion,access_espacio_ubicacion,model_espacio_ubicacion,base.group_user,1,1,1,1
+access_alquiler,access_alquiler,model_alquiler,base.group_user,1,1,1,1

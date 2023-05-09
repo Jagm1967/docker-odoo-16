@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<menuitem id="renta_menu_root" name="Renta">
+    <menuitem id="espacio_menu" name="Espacios">
+        <menuitem id="espacio_1_menu_action" action="espacio_action"/>
+    </menuitem>
+    <menuitem id="espacio_tipo_menu" name="Tipos">
+        <menuitem id="espacio_tipo_1_menu_action" action="espacio_tipo_action"/>
+    </menuitem>
+    <menuitem id="espacio_ubicacion_menu" name="Ubicaciones">
+        <menuitem id="espacio_ubicacion_1_menu_action" action="espacio_ubicacion_action"/>
+    </menuitem>
+</menuitem>
+</odoo> 
